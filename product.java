@@ -14,7 +14,7 @@ public abstract class product {
     }
 
     public String getCodigo() {
-        return codigo;
+        return codigo; 
     }
 
     public String getNome() {
