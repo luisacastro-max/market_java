@@ -1,22 +1,23 @@
 package market;
 
 public class Eletric extends product {
-	private int garantiaMeses;
+    private int warrantyMonths;
 
-    public Eletric(String codigo, String nome, double precoUnitario, int quantidadeEstoque, int garantiaMeses) {
-        super(codigo, nome, precoUnitario, quantidadeEstoque);
-        this.garantiaMeses = garantiaMeses;
+    public Eletric(String code, String name, double unitPrice, int stockQuantity, int warrantyMonths) {
+        super(code, name, unitPrice, stockQuantity);
+        this.warrantyMonths = warrantyMonths;
     }
 
-    public int getGarantiaMeses() {
-        return garantiaMeses;
+    public int getWarrantyMonths() {
+        return warrantyMonths;
     }
-    
+
     @Override
-    public void exibirDetalhes() {
-        System.out.println("Código: " + getCodigo() + ", Nome: " + getNome() + 
-                           ", Preço: R$" + getPrecoUnitario() + 
-                           ", Estoque: " + getQuantidadeEstoque() + 
-                           ", Garantia: " + garantiaMeses + " meses");
+    public void displayDetails() {
+        System.out.println("Code: " + getCode() + ", Name: " + getName() + 
+                           ", Price: $" + getUnitPrice() + 
+                           ", Stock: " + getStockQuantity() + 
+                           ", Warranty: " + warrantyMonths + " months");
     }
 }
+

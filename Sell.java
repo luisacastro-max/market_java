@@ -3,68 +3,62 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sell {
-	 private List<sale> itensVenda = new ArrayList<>();
-	 private double subtotal;
-	 public void adicionarProduto(product produto, int quantidade) {
-	        boolean produtoJaAdicionado = false;
+    private List<sale> saleItems = new ArrayList<>();
+    private double subtotal;
 
-	      
-	        for (sale item : itensVenda) {
-	            if (item.getProduto().equals(produto)) {
-	                item.incrementarQuantidade(quantidade);
-	                produtoJaAdicionado = true;
-	                break;
-	            }
-	        }
-	        if (!produtoJaAdicionado) {
-	            itensVenda.add(new sale(produto, quantidade));
-	        }
+    public void addProduct(product product, int quantity) {
+        boolean productAlreadyAdded = false;
 
-	        subtotal += produto.getPrecoUnitario() * quantidade;
-	    }
-	 
-	 public void removerProduto(product produto) {
-	        sale itemParaRemover = null;
+        for (sale item : saleItems) {
+            if (item.getProduct().equals(product)) {
+                item.increaseQuantity(quantity);
+                productAlreadyAdded = true;
+                break;
+            }
+        }
+        if (!productAlreadyAdded) {
+            saleItems.add(new sale(product, quantity));
+        }
 
-	     
-	        for (sale item : itensVenda) {
-	            if (item.getProduto().equals(produto)) {
-	                itemParaRemover = item;
-	                subtotal -= item.calcularSubtotal();
-	                break;
-	            }
-	        }
+        subtotal += product.getUnitPrice() * quantity;
+    }
 
-	   
-	        if (itemParaRemover != null) {
-	            itensVenda.remove(itemParaRemover);
-	        }
-	    }
-	 
-	 public double calcularSubtotal() {
-	        return subtotal;
-	    }
+    public void removeProduct(product product) {
+        sale itemToRemove = null;
 
-	    public void finalizarVenda() {
-	        for (sale item : itensVenda) {
-	            product produto = item.getProduto();
-	            int quantidadeVendida = item.getQuantidade();
-	            produto.atualizarEstoque(-quantidadeVendida);
-	        }
+        for (sale item : saleItems) {
+            if (item.getProduct().equals(product)) {
+                itemToRemove = item;
+                subtotal -= item.calculateSubtotal();
+                break;
+            }
+        }
 
-	        System.out.println("Venda Finalizada. Total: R$" + subtotal);
-	    }
-	    
-	    
-	    public void exibirItensVenda() {
-	        System.out.println("Itens na venda:");
-	        for (sale item : itensVenda) {
-	            product produto = item.getProduto();
-	            System.out.println("- " + produto.getNome() + " (Qtd: " + item.getQuantidade() + 
-	                               ", Subtotal: R$" + item.calcularSubtotal() + ")");
-	        }
-	    }
+        if (itemToRemove != null) {
+            saleItems.remove(itemToRemove);
+        }
+    }
 
+    public double calculateSubtotal() {
+        return subtotal;
+    }
+
+    public void completeSale() {
+        for (sale item : saleItems) {
+            product product = item.getProduct();
+            int quantitySold = item.getQuantity();
+            product.updateStock(-quantitySold);
+        }
+
+        System.out.println("Sale Completed. Total: $" + subtotal);
+    }
+
+    public void displaySaleItems() {
+        System.out.println("Items in the sale:");
+        for (sale item : saleItems) {
+            product product = item.getProduct();
+            System.out.println("- " + product.getName() + " (Qty: " + item.getQuantity() + 
+                               ", Subtotal: $" + item.calculateSubtotal() + ")");
+        }
+    }
 }
-	 
-	 

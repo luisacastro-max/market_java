@@ -1,44 +1,41 @@
 package market;
 
 public abstract class product {
-	private String codigo;
-    private String nome;
-    private double precoUnitario;
-    private int quantidadeEstoque;
+    private String code;
+    private String name;
+    private double unitPrice;
+    private int stockQuantity;
 
-    public product(String codigo, String nome, double precoUnitario, int quantidadeEstoque) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.precoUnitario = precoUnitario;
-        this.quantidadeEstoque = quantidadeEstoque;
+    public product(String code, String name, double unitPrice, int stockQuantity) {
+        this.code = code;
+        this.name = name;
+        this.unitPrice = unitPrice;
+        this.stockQuantity = stockQuantity;
     }
 
-    public String getCodigo() {
-        return codigo; 
+    public String getCode() {
+        return code;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public double getPrecoUnitario() {
-        return precoUnitario;
+    public double getUnitPrice() {
+        return unitPrice;
     }
 
-    public int getQuantidadeEstoque() {
-        return quantidadeEstoque;
-    }
-    
-    public void atualizarEstoque(int quantidade) {
-        this.quantidadeEstoque += quantidade;
+    public int getStockQuantity() {
+        return stockQuantity;
     }
 
-    public void alterarPreco(double novoPreco) {
-        this.precoUnitario = novoPreco;
+    public void updateStock(int quantity) {
+        this.stockQuantity += quantity;
     }
 
-    public abstract void exibirDetalhes();
+    public void changePrice(double newPrice) {
+        this.unitPrice = newPrice;
+    }
+
+    public abstract void displayDetails();
 }
-
-
-

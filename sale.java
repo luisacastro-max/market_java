@@ -2,29 +2,29 @@ package market;
 
 public class sale {
 
-	 private product produto;
-	    private int quantidade;
+    private product product;
+    private int quantity;
 
-	    public sale(product produto, int quantidade) {
-	        this.produto = produto;
-	        this.quantidade = quantidade;
-	    }
+    public sale(product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
 
-	    public product getProduto() {
-	        return produto;
-	    }
+    public product getProduct() {
+        return product;
+    }
 
-	    public int getQuantidade() {
-	        return quantidade;
-	    }
+    public int getQuantity() {
+        return quantity;
+    }
 
-	    public void incrementarQuantidade(int quantidade) {
-	        this.quantidade += quantidade;
-	    }
-	    
-	    public double calcularSubtotal() {
-	        return produto.getPrecoUnitario() * quantidade;
-	    }
-	}
+    public void increaseQuantity(int quantity) {
+        this.quantity += quantity;
+    }
+
+    public double calculateSubtotal() {
+        return product.getUnitPrice() * quantity;
+    }
+}
 
 

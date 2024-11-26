@@ -1,29 +1,23 @@
 package market;
 
 public class FoodUtensils extends product {
-	private int Validade;
-	
-	public FoodUtensils(String codigo, String nome, double precoUnitario, int quantidadeEstoque, int Validade) {
-        super(codigo, nome, precoUnitario, quantidadeEstoque);
-        this.Validade = Validade;
+    private int validity; 
+
+    public FoodUtensils(String code, String name, double unitPrice, int stockQuantity, int validity) {
+        super(code, name, unitPrice, stockQuantity);
+        this.validity = validity;
     }
-	
-	
- 
-    public int getValidade() {
-		return Validade;
-	}
 
+    public int getValidity() {
+        return validity;
+    }
 
-
-
-
-	@Override
-    public void exibirDetalhes() {
-        System.out.println("Código: " + getCodigo() + ", Nome: " + getNome() + 
-                           ", Preço: R$" + getPrecoUnitario() + 
-                           ", Estoque: " + getQuantidadeEstoque() + 
-                           ", Validade: " + Validade + " dias");
+    @Override
+    public void displayDetails() {
+        System.out.println("Code: " + getCode() + ", Name: " + getName() + 
+                           ", Price: $" + getUnitPrice() + 
+                           ", Stock: " + getStockQuantity() + 
+                           ", Validity: " + validity + " days");
     }
 }
 
