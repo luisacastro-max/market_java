@@ -138,4 +138,3 @@
             </ol>
         </section>
         <section class="section">
-            <h2>Melhorias Futuras</h2>
